@@ -15,7 +15,7 @@ fn main() {
 
 /// Generates a sum of squares of the vector of integers
 fn sum_vector(numbers: &Vec<u64>) -> u64 {
-    let mut d = numbers[0];
+    let mut d = square(numbers[0]);
     for m in &numbers[1..] {
         d += square(*m);
     }
