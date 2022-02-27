@@ -9,11 +9,10 @@ pub mod maths {
         value * value
     }
     pub fn sum_squares(value: &Vec<u64>) -> u64 {
-        /*  works
-        value.iter().fold(0,|accum, value| accum + value*value)
-        */
+        /*  this also works...
+         *  value.iter().fold(0,|accum, value| accum + value*value)
+         */
 
-        // fails
         match value.clone().into_iter().reduce(|accum, value| {
             accum + value*value
         }) {
