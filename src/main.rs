@@ -1,5 +1,5 @@
 use mymath::maths::square;
-use stringmul::stringmul::multiply_string;
+use stringmul::string_utils::multiply_string;
 use std::io::Write;
 use std::str::FromStr;
 

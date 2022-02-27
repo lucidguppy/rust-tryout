@@ -8,13 +8,34 @@ pub mod maths {
     pub fn square(value: u64) -> u64 {
         value * value
     }
+    pub fn sum_squares(value: &Vec<u64>) -> u64 {
+        /*  works
+        value.iter().fold(0,|accum, value| accum + value*value)
+        */
+
+        // fails
+        match value.clone().into_iter().reduce(|accum, value| {
+            accum + value*value
+        }) {
+            None=> 0,
+            Some(val)=>val
+        }
+
+
+    }
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::maths::square;
+    use crate::maths::{square, sum_squares};
     #[test]
     fn it_works() {
         assert_eq!(square(2), 4);
+    }
+    #[test]
+    fn test_sum_squares() {
+        let x = vec![1,2,3];
+        assert_eq!(sum_squares(&x), 14);
+        assert_eq!(x[0], 1);
     }
 }
